@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Currency Converter</title>
+    <script src="./js/bundle.js"></script>
+  </head>
+  <body>
+    <div id="app">
+    <form v-on:submit.prevent="initialValue">
+      <h2>Please enter amount to convert (in Euros)</h2>
+      <input type="number" v-model.number="amountInEuros">
+      <input type="submit" value="Initial Value">
+    </form>
+    </div>
+  </body>
+</html>
