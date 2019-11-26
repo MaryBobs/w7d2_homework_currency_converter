@@ -4,8 +4,9 @@ document.addEventListener('DOMContentLoaded', () => {
   new Vue({
     el: "#app",
     data: {
-      initialValue: null,
-      exchangeRates: []
+      initialValue: 0,
+      exchangeRates: [],
+      selectedCurrency: null
     },
     mounted(){
       this.fetchRates();
@@ -16,6 +17,10 @@ document.addEventListener('DOMContentLoaded', () => {
         .then(response => response.json())
         .then(rates => this.exchangeRates = rates.rates)
      },
+     saveInitialValue: function(){
+       inputValue = this.initialValue
+       console.log(initialValue);
+     }
    }
   })
 })

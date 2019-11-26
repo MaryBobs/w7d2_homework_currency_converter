@@ -7,11 +7,17 @@
   </head>
   <body>
     <div id="app">
-    <form v-on:submit.prevent="initialValue">
-      <h2>Please enter amount to convert (in Euros)</h2>
-      <input type="number" v-model.number="amountInEuros">
-      <input type="submit" value="Initial Value">
-    </form>
+      <form v-on:submit.prevent="saveInitialValue">
+        <h2>Enter amount to convert(in Euros)</h2>
+        <input type="number" v-model.number="inputValue">
+        <label for="select_currency">Select Currency to Convert To</label>
+        <select id="select_currency" v-model="selectedCurrency">
+          <option disabled value="">Select a currency</option>
+          <option v-for="(country, rate) in exchangeRates">{{rate}}</option>
+        </select>
+        <input type="submit" value="Convert">
+      </form>
+
     </div>
   </body>
 </html>
