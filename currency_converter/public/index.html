@@ -6,18 +6,20 @@
     <script src="./js/bundle.js"></script>
   </head>
   <body>
+
     <div id="app">
-      <form v-on:submit.prevent="saveInitialValue">
-        <h2>Enter amount to convert(in Euros)</h2>
-        <input type="number" v-model.number="inputValue">
+      <form v-on:submit.prevent="convertCurrency">
+        <label id="initialValue">Enter amount to convert(in Euros)</label>
+        <input type="number" v-model.number="initialValue">
         <label for="select_currency">Select Currency to Convert To</label>
-        <select id="select_currency" v-model="selectedCurrency">
+        <select id="select_currency" v-model.number="selectedCurrency">
           <option disabled value="">Select a currency</option>
-          <option v-for="(country, rate) in exchangeRates">{{rate}}</option>
+          <option v-for="(rate, country) in exchangeRates" :value="rate">{{country}}</option>
         </select>
+        <button v-on:click="convertCurrency">Convert</button>
         <input type="submit" value="Convert">
       </form>
-
+        <h2>{{converted}}</h2>
     </div>
   </body>
 </html>
